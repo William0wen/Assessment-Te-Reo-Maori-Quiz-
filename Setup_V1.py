@@ -1,3 +1,6 @@
+"""Maori Quiz Setup with pygame - Setting colour/font variables and initial gameloop
+William Owen 7/05/24"""
+
 import pygame
 import random
 import time
