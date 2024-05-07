@@ -18,7 +18,8 @@ blue = (50, 85, 168)
 purple = (160, 105, 201)
 green = (139, 166, 81)
 red = (186, 91, 105)
-colour_list = [black, white, blue, purple, green, red]
+tan = (171, 162, 128)
+colour_list = [black, white, blue, purple, green, red, tan]
 
 
 # Fonts
@@ -36,6 +37,7 @@ def title_page():
 
     button = pygame.image.load("start_button.png").convert_alpha()
 
+    # Main loop
     quit_test = False
     while not quit_test:
         screen.fill(white)
@@ -58,7 +60,7 @@ def title_page():
 
         pygame.display.flip()
 
-        clock.tick(30)
+        clock.tick(60)
 
 
 def start_quiz():
