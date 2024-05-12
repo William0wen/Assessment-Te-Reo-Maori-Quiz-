@@ -30,6 +30,7 @@ question_randomizer = []
 
 clock = pygame.time.Clock()
 
+
 class Question:
     def __init__(self, question, answer1, answer2, correct_answer):
         self.question = question
