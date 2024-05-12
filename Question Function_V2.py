@@ -47,13 +47,14 @@ class Question:
         question_randomizer.append(self.correct_answer)
         print(self.question)
 
+        # Randomizing order of answers displayed
         choice_1 = random.choice(question_randomizer)
         question_randomizer.remove(choice_1)
         choice_2 = random.choice(question_randomizer)
         question_randomizer.remove(choice_2)
         choice_3 = random.choice(question_randomizer)
         question_randomizer.remove(choice_3)
-        print(choice_1, "\n", choice_2, "\n", choice_3)
+        print(choice_1, "", choice_2, "", choice_3)
 
 
 question_1 = Question("What is my name?", "William", "Jonty", "Thomas")
@@ -84,7 +85,7 @@ def title_page():
             # Detecting mouse click on the start button
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 pos = pygame.mouse.get_pos()
-                print(pos)
+                # print(pos)
                 if start_button.collidepoint(pos):
                     Question.display_question(question_1)
 
