@@ -46,31 +46,14 @@ class Question:
         question_randomizer.append(self.answer2)
         question_randomizer.append(self.correct_answer)
         print(self.question)
-        chance = random.randint(1, 6)
-        if chance == 1:
-            print(self.answer1)
-            print(self.answer2)
-            print(self.correct_answer)
-        elif chance == 2:
-            print(self.answer2)
-            print(self.answer1)
-            print(self.correct_answer)
-        elif chance == 3:
-            print(self.correct_answer)
-            print(self.answer1)
-            print(self.answer2)
-        elif chance == 4:
-            print(self.answer1)
-            print(self.correct_answer)
-            print(self.answer2)
-        elif chance == 5:
-            print(self.answer2)
-            print(self.correct_answer)
-            print(self.answer1)
-        elif chance == 6:
-            print(self.correct_answer)
-            print(self.answer2)
-            print(self.answer1)
+
+        choice_1 = random.choice(question_randomizer)
+        question_randomizer.remove(choice_1)
+        choice_2 = random.choice(question_randomizer)
+        question_randomizer.remove(choice_2)
+        choice_3 = random.choice(question_randomizer)
+        question_randomizer.remove(choice_3)
+        print(choice_1, "\n", choice_2, "\n", choice_3)
 
 
 question_1 = Question("What is my name?", "William", "Jonty", "Thomas")
