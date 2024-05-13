@@ -1,5 +1,5 @@
 """Creating the class in which I can store, randomize and display different questions for the quiz
-Displaying the question and ans
+Displaying the question and answers to the pygame display
 William Owen 10/05/24"""
 
 import pygame
