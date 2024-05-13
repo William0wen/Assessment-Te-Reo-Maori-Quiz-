@@ -1,6 +1,5 @@
-"""Creating the class in which I can store, randomize and display different questions for the quiz
-Making the answers clickable, checking if clicked answer is true or not
-William Owen 10/05/24"""
+"""Storing 23 questions in a list that will be randomly drawn from in the test
+William Owen 14/05/24"""
 
 import pygame
 import random
@@ -24,6 +23,8 @@ colour_list = [blue, purple, green, red, tan]
 # Fonts
 arial = pygame.font.SysFont("Arial", 50)
 comic_sans = pygame.font.SysFont("comicsansms", 50)
+
+
 
 question_list = []
 question_randomizer = []
@@ -123,6 +124,7 @@ class Question:
                     pos = pygame.mouse.get_pos()
                     if correct_choice_rect.collidepoint(pos):
                         print("correct option")
+                        return True
                     else:
                         print("Not correct")
 
@@ -130,12 +132,59 @@ class Question:
         pygame.display.flip()
 
 
-question_1 = Question("1. What is my name?", "Wrong 1", "Wrong 2", "Correct")
+# Assigning the questions to variables which will be chosen randomly from a list
+questions = []
+question_1 = Question("What is 'Monday' in Māori?", "Rāmere", "Rātapu", "Rāhina")
+question_2 = Question("What is 'Tuesday' in Māori?", "Rāapa", "Rāhoroi", "Rātu")
+question_3 = Question("What is 'Wednesday' in Māori?", "Rāpare", "Rāmere", "Rāapa")
+question_4 = Question("What is 'Thursday' in Māori?", "Rāapa", "Rātu", "Rāpare")
+question_5 = Question("What is 'Friday' in Māori?", "Rāapa", "Rāpare", "Rāmere")
+question_6 = Question("What is 'Saturday' in Māori?", "Rāmere", "Rātapu", "Rāhoroi")
+question_7 = Question("What is 'Sunday' in Māori?", "Rāhina", "Rāhoroi", "Rātapu")
+question_8 = Question("What is one in Māori?", "Whā", "Whitu", "Tahi")
+question_9 = Question("What is two in Māori?", "Rima", "Ono", "Rua")
+question_10 = Question("What is three in Māori?", "Whā", "Tahi", "Toru")
+question_11 = Question("What is four in Māori?", "Iwa", "Tekau", "Whā")
+question_12 = Question("What is five in Māori?", "Waru", "Ono", "Rima")
+question_13 = Question("What is six in Māori?", "Whā", "Rua", "Ono")
+question_14 = Question("What is seven in Māori?", "Waru", "Toru", "Whitu")
+question_15 = Question("What is eight in Māori?", "Whā", "Tahi", "Waru")
+question_16 = Question("What is nine in Māori?", "Takau", "Tahi", "Iwa")
+question_17 = Question("What is ten in Māori?", "Whā", "Whitu", "Tekau")
+question_18 = Question("What is white in Māori?", "Whero", "Karaka", "Mā")
+question_19 = Question("What is red in Māori?", "Mā", "Kikorangi", "Whero")
+question_20 = Question("What is orange in Māori?", "Kākāriki", "Kikorangi", "Karaka")
+question_21 = Question("What is yellow in Māori?", "Whero", "Kākāriki", "Kōwhai")
+question_22 = Question("What is green in Māori?", "Kōwhai", "Mā", "Kākāriki")
+question_23 = Question("What is blue in Māori?", "Karaka", "Kōwhai", "Kikorangi")
+questions.append(question_1)
+questions.append(question_2)
+questions.append(question_3)
+questions.append(question_4)
+questions.append(question_5)
+questions.append(question_6)
+questions.append(question_7)
+questions.append(question_8)
+questions.append(question_9)
+questions.append(question_10)
+questions.append(question_11)
+questions.append(question_12)
+questions.append(question_13)
+questions.append(question_14)
+questions.append(question_15)
+questions.append(question_16)
+questions.append(question_17)
+questions.append(question_18)
+questions.append(question_19)
+questions.append(question_20)
+questions.append(question_21)
+questions.append(question_22)
+questions.append(question_23)
 
 
 # Function for the title page I can call whenever I want to start a new quiz
 def title_page():
-    title_caption = comic_sans.render("Te Reo Maori Quiz", True, black)
+    title_caption = comic_sans.render("Te Reo Māori Quiz", True, black)
     title_rect = title_caption.get_rect()
     title_rect.center = (500, 200)
 
@@ -163,7 +212,11 @@ def title_page():
                     in_progress = True
                     while in_progress:
                         screen.fill(random_colour)
-                        Question.display_question(question_1, random_colour)
+                        for number in range(10):
+                            current_question = random.choice(questions)
+                            print(f"Round {number}")
+                            Question.display_question(current_question, random_colour)
+                            questions.remove(current_question)
 
         pygame.display.flip()
 
