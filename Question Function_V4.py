@@ -1,6 +1,6 @@
 """Creating the class in which I can store, randomize and display different questions for the quiz
 Making the answers clickable, checking if clicked answer is true or not
-William Owen 10/05/24"""
+William Owen 14/05/24"""
 
 import pygame
 import random
