@@ -9,6 +9,7 @@ pygame.init()
 screen = pygame.display.set_mode((1000, 700))
 pygame.display.set_caption("Te Reo Maori Quiz")
 
+print(pygame.font.get_fonts())
 # Colours
 black = (0, 0, 0)
 white = (255, 255, 255)
@@ -25,6 +26,8 @@ colour_list = [blue, purple, green, red, tan]
 # Fonts
 arial = pygame.font.SysFont("Arial", 50)
 comic_sans = pygame.font.SysFont("comicsansms", 50)
+hygraphicmedium = pygame.font.SysFont("hygraphicmedium", 40)
+
 
 question_list = []
 question_randomizer = []
@@ -82,7 +85,7 @@ class Question:
         while not clicked:
 
             # Displaying the current round
-            current_round_caption = comic_sans.render(f"{current_round}/10", True, black)
+            current_round_caption = hygraphicmedium.render(f"{current_round}/10", True, black)
             current_round_rect = current_round_caption.get_rect()
             current_round_rect.center = (900, 100)
             screen.blit(current_round_caption, current_round_rect)
@@ -286,4 +289,3 @@ title_page()
 
 pygame.quit()
 quit()
-
