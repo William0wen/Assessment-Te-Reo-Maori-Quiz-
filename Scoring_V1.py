@@ -1,6 +1,5 @@
-"""Refreshing the pygame display after one of the answers has been clicked,
-Adds graphic afterwards so the user knows the correct question
-William Owen 14/05/24"""
+"""Displaying the current round marker on the screen so the user knows how many questions they have to go
+William Owen 15/05/24"""
 
 import pygame
 import random
@@ -43,8 +42,13 @@ class Question:
         self.correct_answer = correct_answer
         question_list.append(self)
 
-    def display_question(self, text_colour):
+    def display_question(self, text_colour, current_round):
         correct_choice = ""
+
+        correct_choice_rect = 0
+        choice_1_rect = 0
+        choice_2_rect = 0
+        choice_3_rect = 0
 
         question_randomizer.append(self.answer1)
         question_randomizer.append(self.answer2)
@@ -77,11 +81,18 @@ class Question:
         clicked = False
         while not clicked:
 
+            # Displaying the current round
+            current_round_caption = comic_sans.render(f"{current_round}/10", True, black)
+            current_round_rect = current_round_caption.get_rect()
+            current_round_rect.center = (900, 100)
+            screen.blit(current_round_caption, current_round_rect)
+
             # Getting the question and answer captions prepared to display
             question_caption = comic_sans.render(self.question, True, black)
             question_rect = question_caption.get_rect()
             question_rect.center = (500, 200)
 
+            # All this is to keep track of what the correct choice is
             choice_1_caption = arial.render(choice_1, True, black, text_colour)
             if correct_choice == choice_1:
                 correct_choice_rect = choice_1_caption.get_rect()
@@ -212,7 +223,7 @@ def title_page():
                 quit_test = True
 
             # Detecting mouse click on the start button
-            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 pos = pygame.mouse.get_pos()
                 # print(pos)
                 if start_button.collidepoint(pos):
@@ -220,6 +231,9 @@ def title_page():
         pygame.display.flip()
 
         clock.tick(60)
+
+    pygame.quit()
+    quit()
 
 
 def new_quiz():
@@ -249,15 +263,15 @@ def new_quiz():
     questions.append(question_23)
     in_progress = True
     while in_progress:
-        for number in range(1, 11):
+        for current_round in range(1, 11):
             # Setting random bg colour
-            print(f"Round {number}")
+            print(f"Round {current_round}")
             random_colour = random.choice(colour_list)
             screen.fill(random_colour)
 
             # Getting random question
             current_question = random.choice(questions)
-            Question.display_question(current_question, random_colour)
+            Question.display_question(current_question, random_colour, current_round)
             questions.remove(current_question)
 
         title_page()
