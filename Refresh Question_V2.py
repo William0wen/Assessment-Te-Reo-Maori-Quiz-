@@ -148,17 +148,20 @@ class Question:
                         choice_3_rect = choice_3_caption.get_rect()
                         choice_3_rect.center = (750, 500)
                         screen.blit(choice_3_caption, choice_3_rect)
-                        pygame.display.flip()
-
-                    time.sleep(0.7)
 
                     if correct_choice_rect.collidepoint(pos):
                         print("correct option")
-
+                        pygame.display.flip()
+                        time.sleep(0.7)
                         return True
                     else:
                         print("Not correct")
-                        screen.fill(bright_red)
+                        not_correct = arial.render("INCORRECT", True, bright_red)
+                        not_correct_rect = not_correct.get_rect()
+                        not_correct_rect.center = (500, 300)
+                        screen.blit(not_correct, not_correct_rect)
+                        pygame.display.flip()
+                        time.sleep(0.7)
                         return False
 
             pygame.display.flip()
@@ -264,9 +267,8 @@ def new_question():
         title_page()
 
 
-
 def scoring_page():
-    title_page()
+    pass
 
 
 # Main
