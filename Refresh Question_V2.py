@@ -19,6 +19,7 @@ green = (203, 237, 161)
 red = (245, 162, 171)
 tan = (252, 221, 172)
 bright_green = (85, 255, 66)
+bright_red = (247, 47, 74)
 colour_list = [blue, purple, green, red, tan]
 
 
@@ -149,7 +150,7 @@ class Question:
                         screen.blit(choice_3_caption, choice_3_rect)
                         pygame.display.flip()
 
-                    time.sleep(1)
+                    time.sleep(0.7)
 
                     if correct_choice_rect.collidepoint(pos):
                         print("correct option")
@@ -157,6 +158,7 @@ class Question:
                         return True
                     else:
                         print("Not correct")
+                        screen.fill(bright_red)
                         return False
 
             pygame.display.flip()
