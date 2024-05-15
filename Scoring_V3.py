@@ -303,9 +303,6 @@ def scoring_page(correct_questions):
 
     pygame.display.flip()
 
-    print(f"Correct questions: {correct_questions}")
-    print(f"Incorrect: {10 - correct_questions}")
-
     quit_test = False
     while not quit_test:
         for event in pygame.event.get():
