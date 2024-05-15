@@ -297,9 +297,9 @@ def scoring_page(correct_questions):
     screen.blit(score_caption, score_rect)
 
     button = pygame.image.load("start_button.png").convert_alpha()
-    start_button = screen.blit(button, (100, 450))
+    start_button = screen.blit(button, (130, 450))
     button = pygame.image.load("quit_button.png").convert_alpha()
-    quit_button = screen.blit(button, (500, 450))
+    quit_button = screen.blit(button, (510, 450))
 
     pygame.display.flip()
 
