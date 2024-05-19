@@ -10,6 +10,7 @@ pygame.init()
 screen = pygame.display.set_mode((1000, 700))
 pygame.display.set_caption("Te Reo Maori Quiz")
 
+
 # Colours
 black = (0, 0, 0)
 white = (255, 255, 255)
@@ -22,12 +23,12 @@ bright_green = (85, 255, 66)
 bright_red = (247, 47, 74)
 colour_list = [blue, purple, green, red, tan]
 
-
+# print(pygame.font.get_fonts())
 # Fonts
 arial = pygame.font.SysFont("Arial", 50)
 comic_sans = pygame.font.SysFont("comicsansms", 50)
 hygraphicmedium = pygame.font.SysFont("hygraphicmedium", 40)
-
+small_hygraphicmedium = pygame.font.SysFont("hygraphicmedium", 30)
 
 question_list = []
 question_randomizer = []
@@ -207,6 +208,10 @@ question_23 = Question("What is 'blue' in Māori?", "Karaka", "Kōwhai", "Kikora
 
 # Function for the title page I can call whenever I want to start a new quiz
 def title_page():
+
+    instructions_caption = small_hygraphicmedium.render("Please click directly on your chosen answer", True, black)
+    instructions_rect = instructions_caption.get_rect()
+    instructions_rect.center = (500, 250)
     title_caption = comic_sans.render("Te Reo Māori Quiz", True, black)
     title_rect = title_caption.get_rect()
     title_rect.center = (500, 200)
@@ -218,6 +223,7 @@ def title_page():
     while not quit_test:
         screen.fill(white)
         screen.blit(title_caption, title_rect)
+        screen.blit(instructions_caption, instructions_rect)
         start_button = screen.blit(button, (350, 400))
 
         # Quit loop
