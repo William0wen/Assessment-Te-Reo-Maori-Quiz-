@@ -182,7 +182,7 @@ class Question:
 # Assigning the questions to variables which will be chosen randomly from a list
 questions = []
 # Regular mode questions
-question_1 = Question("What is 'Monday' in Māori?", "Rāmere", "Rātapu", "Rāhina")
+question_1 = Question("What is 'Monday' in Māori? ", "Rāmere", "Rātapu", "Rāhina")
 question_2 = Question("What is 'Tuesday' in Māori?", "Rāapa", "Rāhoroi", "Rātu")
 question_3 = Question("What is 'Wednesday' in Māori?", "Rāpare", "Rāmere", "Rāapa")
 question_4 = Question("What is 'Thursday' in Māori?", "Rāapa", "Rātu", "Rāpare")
@@ -207,7 +207,14 @@ question_22 = Question("What is 'green' in Māori?", "Kōwhai", "Mā", "Kākāri
 question_23 = Question("What is 'blue' in Māori?", "Karaka", "Kōwhai", "Kikorangi")
 
 # Additional endless mode questions
-question_24 = Question("What is the Māori wor")
+question_24 = Question("What is 'work' in Māori?", "Hui", "Hīkoi", "Mahi")
+question_25 = Question("What is 'sea' in Māori?", "Maunga", "Motu", "Moana")
+question_26 = Question("What is 'mountain' in Māori?", "Motu", "Moana", "Maunga")
+question_27 = Question("What is 'children' in Māori?", "Tapu", "Tamāhine", "Tamariki")
+question_28 = Question("What is 'water' in Māori?", "Waiata", "Waka", "Wai")
+question_29 = Question("What is 'homeland' in Māori?", "Waiata", "Whānau", "Whenua")
+question_30 = Question("What is 'funeral' in Māori?", "Hangi", "Taonga", "Tangi")
+
 
 # Function for the title page I can call whenever I want to start a new quiz
 def title_page():
@@ -366,6 +373,13 @@ def endless_mode():
     questions.append(question_21)
     questions.append(question_22)
     questions.append(question_23)
+    questions.append(question_24)
+    questions.append(question_25)
+    questions.append(question_26)
+    questions.append(question_27)
+    questions.append(question_28)
+    questions.append(question_29)
+    questions.append(question_30)
 
     score = 0
     current_round = 1
