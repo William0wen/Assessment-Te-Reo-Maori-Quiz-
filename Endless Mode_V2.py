@@ -1,6 +1,6 @@
-"""Displaying the current round marker on the screen so the user knows how many questions they have to go
-Creating a final scoring page that the user is sent to after the test to see their score
-William Owen 15/05/24"""
+"""Creating a new endless mode
+Writing final score to a txt file where highest ever score is displayed
+William Owen 26/05/24"""
 
 import pygame
 import random
@@ -403,8 +403,21 @@ def endless_mode():
     for question in question_list:
         question_list.remove(question)
 
-    high_score = 999999999
-    endless_mode_scoring_page(score, high_score) # Use TXT file for score storage
+    # Appending score to txt file
+    txt_file = open("scores.txt", "a")
+    txt_file.write(f"{score}\n")
+    txt_file.close()
+
+    # Sorting txt file
+    f = open("scores.txt", "r")
+    data = f.read()
+    scores = data.split("\n")
+    f.close()
+
+    scores.sort()
+    high_score = scores[-1]  # Finding highest score in txt file
+
+    endless_mode_scoring_page(score, high_score)
 
 
 def endless_mode_scoring_page(score, high_score):

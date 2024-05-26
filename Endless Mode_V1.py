@@ -1,6 +1,5 @@
-"""Displaying the current round marker on the screen so the user knows how many questions they have to go
-Creating a final scoring page that the user is sent to after the test to see their score
-William Owen 15/05/24"""
+"""Creating a new Endless mode
+William Owen 25/05/24"""
 
 import pygame
 import random
