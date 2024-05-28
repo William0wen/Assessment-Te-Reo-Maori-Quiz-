@@ -1,6 +1,5 @@
-"""Creating a new endless mode
-Writing final score to a txt file where highest ever score is displayed
-William Owen 26/05/24"""
+"""Māori Quiz Final Version
+William Owen 28/05/24"""
 
 import pygame
 import random
