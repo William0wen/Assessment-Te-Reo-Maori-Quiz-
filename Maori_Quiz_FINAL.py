@@ -204,8 +204,6 @@ question_20 = Question("What is 'orange' in Māori?", "Kākāriki", "Kikorangi",
 question_21 = Question("What is 'yellow' in Māori?", "Whero", "Kākāriki", "Kōwhai")
 question_22 = Question("What is 'green' in Māori?", "Kōwhai", "Mā", "Kākāriki")
 question_23 = Question("What is 'blue' in Māori?", "Karaka", "Kōwhai", "Kikorangi")
-
-# Additional endless mode questions
 question_24 = Question("What is 'work' in Māori?", "Hui", "Hīkoi", "Mahi")
 question_25 = Question("What is 'sea' in Māori?", "Maunga", "Motu", "Moana")
 question_26 = Question("What is 'mountain' in Māori?", "Motu", "Moana", "Maunga")
