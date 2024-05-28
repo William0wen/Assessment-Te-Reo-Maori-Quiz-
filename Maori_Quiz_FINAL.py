@@ -1,6 +1,5 @@
-"""Creating a new endless mode
-Making nice final score screen for endless mode
-William Owen 26/05/24"""
+"""Maori Quiz Final Program
+William Owen 28/05/24"""
 
 import pygame
 import random
