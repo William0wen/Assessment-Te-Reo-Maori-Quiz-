@@ -1,5 +1,6 @@
-"""Maori Quiz Final Program
-William Owen 28/05/24"""
+"""Creating a new endless mode
+Writing final score to a txt file where highest ever score is displayed
+William Owen 26/05/24"""
 
 import pygame
 import random
@@ -29,13 +30,10 @@ comic_sans = pygame.font.SysFont("comicsansms", 50)
 hygraphicmedium = pygame.font.SysFont("hygraphicmedium", 40)
 small_hygraphicmedium = pygame.font.SysFont("hygraphicmedium", 30)
 
-
+question_list = []
 question_randomizer = []
 randomized_questions = []
 incorrect = []
-
-# Assigning the questions to variables which will be chosen randomly from a list
-questions = []
 
 clock = pygame.time.Clock()
 
@@ -46,7 +44,7 @@ class Question:
         self.answer1 = answer1
         self.answer2 = answer2
         self.correct_answer = correct_answer
-        questions.append(Question)
+        question_list.append(self)
 
     def display_question(self, text_colour, current_round):
         correct_choice = ""
@@ -181,6 +179,8 @@ class Question:
         pygame.display.flip()
 
 
+# Assigning the questions to variables which will be chosen randomly from a list
+questions = []
 # Regular mode questions
 question_1 = Question("What is 'Monday' in Māori? ", "Rāmere", "Rātapu", "Rāhina")
 question_2 = Question("What is 'Tuesday' in Māori?", "Rāapa", "Rāhoroi", "Rātu")
@@ -199,13 +199,14 @@ question_14 = Question("What is 'seven' in Māori?", "Waru", "Toru", "Whitu")
 question_15 = Question("What is 'eight' in Māori?", "Whā", "Tahi", "Waru")
 question_16 = Question("What is 'nine' in Māori?", "Takau", "Tahi", "Iwa")
 question_17 = Question("What is 'ten' in Māori?", "Whā", "Whitu", "Tekau")
-# Additional endless mode questions
 question_18 = Question("What is 'white' in Māori?", "Whero", "Karaka", "Mā")
 question_19 = Question("What is 'red' in Māori?", "Mā", "Kikorangi", "Whero")
 question_20 = Question("What is 'orange' in Māori?", "Kākāriki", "Kikorangi", "Karaka")
 question_21 = Question("What is 'yellow' in Māori?", "Whero", "Kākāriki", "Kōwhai")
 question_22 = Question("What is 'green' in Māori?", "Kōwhai", "Mā", "Kākāriki")
 question_23 = Question("What is 'blue' in Māori?", "Karaka", "Kōwhai", "Kikorangi")
+
+# Additional endless mode questions
 question_24 = Question("What is 'work' in Māori?", "Hui", "Hīkoi", "Mahi")
 question_25 = Question("What is 'sea' in Māori?", "Maunga", "Motu", "Moana")
 question_26 = Question("What is 'mountain' in Māori?", "Motu", "Moana", "Maunga")
@@ -281,6 +282,11 @@ def new_quiz():
     questions.append(question_16)
     questions.append(question_17)
     questions.append(question_18)
+    questions.append(question_19)
+    questions.append(question_20)
+    questions.append(question_21)
+    questions.append(question_22)
+    questions.append(question_23)
 
     correct_questions = 0
     in_progress = True
@@ -300,8 +306,8 @@ def new_quiz():
         in_progress = False
 
     # Refreshing the question list
-    for question in questions:
-        questions.remove(question)
+    for question in question_list:
+        question_list.remove(question)
 
     scoring_page(correct_questions)
 
@@ -394,8 +400,8 @@ def endless_mode():
             in_progress = False
 
     # Refreshing the question list
-    for question in questions:
-        questions.remove(question)
+    for question in question_list:
+        question_list.remove(question)
 
     # Appending score to txt file
     txt_file = open("scores.txt", "a")
